@@ -19,6 +19,23 @@ public partial class MainWindow : Window
         Unloaded += OnUnloaded;
     }
 
+    private void TitleBar_OnClick(object? sender, PointerPressedEventArgs e)
+    {
+        var point = e.GetCurrentPoint(this);
+        if (point.Properties.IsLeftButtonPressed)
+        {
+            if (e.ClickCount == 2) // double-click
+            {
+                var window = (Window)this.VisualRoot!;
+                window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            }
+            else
+            {
+                BeginMoveDrag(e);
+            }
+        }
+    }
+
     private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;

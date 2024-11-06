@@ -15,7 +15,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Border Background="#FF1D1D1D" CornerRadius="10" BorderBrush="Purple" BorderThickness="2">
+    <Border Background="#FF1D1D1D" PointerPressed="TitleBar_OnClick" CornerRadius="10" BorderBrush="Purple" BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
