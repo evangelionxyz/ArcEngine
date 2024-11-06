@@ -30,7 +30,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 
-                <TextBlock Grid.Column="0" Text="Project Browser"  VerticalAlignment="Center"  FontSize="12"
+                <TextBlock Grid.Column="0" Text="Arc Engine"  VerticalAlignment="Center"  FontSize="12"
                                           Margin="12,0"  Background="Transparent" Foreground="White" />
                 <Button Grid.Column="1" x:Name="TbFileBt" VerticalAlignment="Center" Content="File" FontSize="12"
                         Background="Transparent" Foreground="White"/>
@@ -42,9 +42,23 @@
         
             <!-- Main Content -->
             <Grid Grid.Row="1" >
-                <DockPanel>
+                <Grid ColumnDefinitions="250, 1, *">
+                    <Border Grid.Column="0" Background="#FF2D2D2D" BorderBrush="Transparent"
+                            BorderThickness="1">
+                        <TreeView ItemsSource="{Binding MyNodes}">
+                            <TreeView.ItemTemplate>
+                                <TreeDataTemplate ItemsSource="{Binding SubNodes}">
+                                    <TextBlock Foreground="White" Text="{Binding Title}"/>
+                                </TreeDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Border>
                     
-                </DockPanel>
+                    <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
+                    <Border Grid.Column="2">
+                        <Rectangle Fill="Gray" Height="500"></Rectangle>
+                    </Border>
+                </Grid>
             </Grid>
         </Grid>
     </Border>
