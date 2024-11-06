@@ -12,6 +12,8 @@ namespace Editor.Views;
 
 public partial class MainWindow : Window
 {
+    private string currentAudio = "loading_screen";
+    
     public MainWindow()
     {
         InitializeComponent();
@@ -40,7 +42,7 @@ public partial class MainWindow : Window
     {
         Loaded -= OnLoaded;
         EngineApi.AudioEngine_Init();
-        EngineApi.AudioEngine_LoadSource("bullet", "Resources/Audio/bullet.mp3");
+        EngineApi.AudioEngine_LoadSource(currentAudio, "Resources/Audio/loading_screen.wav");
     }
     
     private void OnUnloaded(object? sender, RoutedEventArgs e)
@@ -51,6 +53,33 @@ public partial class MainWindow : Window
 
     private void PlayBt_OnClick(object? sender, RoutedEventArgs e)
     {
-        EngineApi.AudioEngine_PlaySource("bullet");
+        EngineApi.AudioEngine_PlaySource(currentAudio);
+        SetStatusBar($"Playing '{currentAudio}'");
+    }
+    
+    private void StopBt_OnClick(object? sender, RoutedEventArgs e)
+    {
+        EngineApi.AudioEngine_StopSource("loading_screen");
+        SetStatusBar("'loading_screen.wav' Stopped");
+    }
+    
+    private void PauseBt_OnClick(object? sender, RoutedEventArgs e)
+    {
+        EngineApi.AudioEngine_PauseSource("loading_screen");
+        SetStatusBar("'loading_screen.wav' Paused");
+    }
+
+    public void SetStatusBar(string message)
+    {
+        StatusBarTb.Text = message;
+    }
+
+    private void PlayStop_OnKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key != Key.Space) return;
+        if (EngineApi.AudioEngine_IsPlaying(currentAudio))
+            EngineApi.AudioEngine_StopSource(currentAudio);
+        else
+            EngineApi.AudioEngine_PlaySource(currentAudio);
     }
 }

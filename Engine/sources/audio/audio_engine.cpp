@@ -95,3 +95,9 @@ void AudioEngine_PauseSource(const char *name)
         ma_sound_stop(sound);
     }
 }
+
+bool AudioEngine_IsPlaying(const char* name)
+{
+    return ma_sound_is_playing(s_AudioData.SoundsMap.at(name));
+}
+

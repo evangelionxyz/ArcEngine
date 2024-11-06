@@ -24,4 +24,7 @@ public class EngineApi
     
     [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
     public static extern void AudioEngine_PauseSource(string name);
+    
+    [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+    public static extern bool AudioEngine_IsPlaying(string name);
 }

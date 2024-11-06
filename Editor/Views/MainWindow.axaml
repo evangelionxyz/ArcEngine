@@ -19,10 +19,18 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
-            <Grid Grid.Row="0" Background="#FF2D2D2D" Height="40" VerticalAlignment="Top">
+            <Grid Grid.Row="0" Height="40" VerticalAlignment="Center">
+                <Grid.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF2D2D2D" Offset="1"/>
+                        <GradientStop Color="#F22D2f2D" Offset="0"/>
+                    </RadialGradientBrush>
+                </Grid.Background>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto" />
@@ -30,36 +38,46 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 
-                <TextBlock Grid.Column="0" Text="Arc Engine"  VerticalAlignment="Center"  FontSize="12"
+                <TextBlock Grid.Column="0" Text="Arc Engine"  VerticalAlignment="Center"
                                           Margin="12,0"  Background="Transparent" Foreground="White" />
-                <Button Grid.Column="1" x:Name="TbFileBt" VerticalAlignment="Center" Content="File" FontSize="12"
+                <Button Grid.Column="1" x:Name="TbFileBt" VerticalAlignment="Center" Content="File"
                         Background="Transparent" Foreground="White"/>
-                <Button Grid.Column="2" x:Name="TbViewBt" VerticalAlignment="Center" Content="View" FontSize="12"
+                <Button Grid.Column="2" x:Name="TbViewBt" VerticalAlignment="Center" Content="View"
                         Background="Transparent" Foreground="White"/>
-                <Button Grid.Column="3" x:Name="TbHelpBt" VerticalAlignment="Center" Content="Help" FontSize="12"
+                <Button Grid.Column="3" x:Name="TbHelpBt" VerticalAlignment="Center" Content="Help"
                         Background="Transparent" Foreground="White"/>
             </Grid>
         
             <!-- Main Content -->
             <Grid Grid.Row="1" >
-                <Grid ColumnDefinitions="250, 1, *">
+                <Grid ColumnDefinitions="250, 0, *">
                     <Border Grid.Column="0" Background="#FF2D2D2D" BorderBrush="Transparent"
                             BorderThickness="1">
                         <TreeView ItemsSource="{Binding MyNodes}">
                             <TreeView.ItemTemplate>
                                 <TreeDataTemplate ItemsSource="{Binding SubNodes}">
-                                    <TextBlock Foreground="White" Text="{Binding Title}"/>
+                                    <TextBlock FontSize="11" Padding="0, -2, 0, -2" Foreground="White" Text="{Binding Title}"/>
                                 </TreeDataTemplate>
                             </TreeView.ItemTemplate>
                         </TreeView>
                     </Border>
                     
-                    <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
-                    <Border Grid.Column="2">
-                        <Rectangle Fill="Gray" Height="500"></Rectangle>
+                    <GridSplitter Grid.Column="1" Background="#87878787" ResizeDirection="Columns" 
+                                  BorderThickness="0"/>
+                    
+                    <Border Grid.Column="2" HorizontalAlignment="Center" KeyDown="PlayStop_OnKeyDown">
+                        <StackPanel Spacing="5" Orientation="Horizontal" VerticalAlignment="Top" Margin="0, 10, 0, 0">
+                            <Button x:Name="PlayBt" Click="PlayBt_OnClick" HorizontalContentAlignment="Center" Width="60" Background="DarkGreen">Play</Button>
+                            <Button x:Name="StopBt" Click="StopBt_OnClick" HorizontalContentAlignment="Center" Width="60" Background="#87878787">Stop</Button>
+                            <Button x:Name="PauseBt" Click="PauseBt_OnClick" HorizontalContentAlignment="Center" Width="60" Background="#87878787">Pause</Button>
+                        </StackPanel>
                     </Border>
                 </Grid>
             </Grid>
+            
+            <StackPanel Grid.Row="2" Background="#FF2D2D2D" Height="30" VerticalAlignment="Center">
+                <TextBlock x:Name="StatusBarTb" Text="Status Bar" FontSize="11" Margin="10, 0, 0, 5" Foreground="White"></TextBlock>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

@@ -13,6 +13,7 @@ extern "C" {
     ENGINE_API void AudioEngine_PlaySource(const char *name);
     ENGINE_API void AudioEngine_StopSource(const char *name);
     ENGINE_API void AudioEngine_PauseSource(const char *name);
+    ENGINE_API bool AudioEngine_IsPlaying(const char *name);
 }
 
 #endif
