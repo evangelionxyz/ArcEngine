@@ -2,8 +2,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Editor.Models;
+
 
 namespace Editor.Views;
 

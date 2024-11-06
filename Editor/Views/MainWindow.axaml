@@ -3,31 +3,49 @@
         xmlns:vm="using:Editor.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" Width="650" Height="450"
+        mc:Ignorable="d" Width="1080" Height="720"
         x:Class="Editor.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Background="Transparent"
-        TransparencyLevelHint="AcrylicBlur"
+        Background="#333333"
+        ExtendClientAreaToDecorationsHint="True"
         Title="Arc Editor">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Vertical">
-			<Button Click="PlayBt_OnClick" Content="Play"/>
-        </StackPanel>
-        
-    </Grid>
-    
-    
-    
 
+    <Border Background="#FF1D1D1D" CornerRadius="10" BorderBrush="Purple" BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" Background="#FF2D2D2D" Height="40" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Text="Project Browser"  VerticalAlignment="Center"  FontSize="12"
+                                          Margin="12,0"  Background="Transparent" Foreground="White" />
+                <Button Grid.Column="1" x:Name="TbFileBt" VerticalAlignment="Center" Content="File" FontSize="12"
+                        Background="Transparent" Foreground="White"/>
+                <Button Grid.Column="2" x:Name="TbViewBt" VerticalAlignment="Center" Content="View" FontSize="12"
+                        Background="Transparent" Foreground="White"/>
+                <Button Grid.Column="3" x:Name="TbHelpBt" VerticalAlignment="Center" Content="Help" FontSize="12"
+                        Background="Transparent" Foreground="White"/>
+            </Grid>
+        
+            <!-- Main Content -->
+            <Grid Grid.Row="1" >
+                <DockPanel>
+                    
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sources\audio_engine.cpp">
+    <ClCompile Include="sources\audio\audio_engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sources\audio_engine.h">
+    <ClInclude Include="sources\audio\audio_engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sources\base.h">
+    <ClInclude Include="sources\core\base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sources\core.h">
+    <ClInclude Include="sources\core\core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sources\miniaudio.h">
+    <ClInclude Include="ThirdParty\miniaudio\miniaudio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

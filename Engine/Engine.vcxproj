@@ -114,6 +114,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)ThirdParty\glm\;$(ProjectDir)sources\;$(ProjectDir)ThirdParty\miniaudio\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,6 +151,7 @@
       <PreprocessorDefinitions>NDEBUG;CPPDYNAMICLIBRARYTEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)ThirdParty\glm\;$(ProjectDir)sources\;$(ProjectDir)ThirdParty\miniaudio\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -159,7 +161,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sources\audio_engine.cpp">
+    <ClInclude Include="sources\audio\audio_engine.h" />
+    <ClInclude Include="sources\core\base.h" />
+    <ClInclude Include="sources\core\core.h" />
+    <ClInclude Include="ThirdParty\miniaudio\miniaudio.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\audio\audio_engine.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
@@ -233,15 +241,6 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sources\audio_engine.h" />
-    <ClInclude Include="sources\base.h" />
-    <ClInclude Include="sources\core.h" />
-    <ClInclude Include="sources\miniaudio.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="sources\core\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
