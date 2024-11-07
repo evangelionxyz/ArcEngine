@@ -1,0 +1,65 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:Editor.Components"
+             x:DataType="local:Transform"
+             x:Class="Editor.Views.Components.TransformCompView">
+    
+    <Border Background="#12121212" CornerRadius="10" HorizontalAlignment="Stretch">
+        
+        <StackPanel Orientation="Vertical" Spacing="6" Background="#12121212">
+            <Border BorderBrush="#12121212" Background="#12121212" BorderThickness="1">
+                <TextBlock Text="Transform" FontWeight="Medium" HorizontalAlignment="Center" FontSize="12"/>
+            </Border>
+
+            <Grid ColumnDefinitions="68, Auto, *" Margin="12, 0, 12, 12">
+                
+                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Spacing="10">
+                    <TextBlock FontSize="11" Text="Translate" FontWeight="SemiBold"/>
+                    <TextBlock FontSize="11" Text="Rotation" FontWeight="SemiBold"/>
+                    <TextBlock FontSize="11"  Text="Scale" FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+                
+                <StackPanel Grid.Column="2" Spacing="2" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <TextBox x:Name="translateX" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Position.X, Mode=TwoWay}"/>
+                        <TextBox x:Name="translateY" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Position.X, Mode=TwoWay}"/>
+                        <TextBox x:Name="translateZ" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                 Text="{Binding Position.Z, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <TextBox x:Name="RotationX" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Rotation.X, Mode=TwoWay}"/>
+                        <TextBox x:Name="RotationY" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Rotation.Y, Mode=TwoWay}"/>
+                        <TextBox x:Name="RotationZ" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Rotation.Z, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <TextBox x:Name="scaleX" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                 Text="{Binding Scale.X, Mode=TwoWay}"/>
+                        <TextBox x:Name="scaleY" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                 Text="{Binding Scale.X, Mode=TwoWay}"/>
+                        <TextBox x:Name="scaleZ" FontSize="11" Width="40" BorderBrush="DarkGray"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                 Text="{Binding Scale.X, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>
